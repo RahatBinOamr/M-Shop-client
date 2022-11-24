@@ -1,6 +1,6 @@
 import React from 'react';
 import img1 from '../../assets/banner/img1.jpg'
-import img2 from '../../assets/banner/img 2.jpg'
+import img2 from '../../assets/banner/img2.jpg'
 import img3 from '../../assets/banner/img 3.jpeg'
 import img4 from '../../assets/banner/img4.jpg'
 import img5 from '../../assets/banner/img 5.jpg'
