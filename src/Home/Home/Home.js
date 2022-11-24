@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <div className='mb-10'>
             <Banner></Banner>
-            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2'>
+            <div className='flex flex-row '>
                
                 <ProductCategory></ProductCategory>
                

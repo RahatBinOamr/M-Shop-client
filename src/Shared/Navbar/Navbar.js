@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Nabvar = () => {
   const ManuIteam = <>
    <li className='font-semibold'> <Link to='/'> Home</Link> </li>
+   <li className='font-semibold'> <Link to='/allproducts'> All Products</Link> </li>
   
   </>
   
@@ -20,9 +21,9 @@ const Nabvar = () => {
        {ManuIteam}
       </ul>
     </div>
-    <a className="btn btn-ghost normal-case text-xl">Used Mobile</a>
+    <Link to='/' className="btn btn-ghost normal-case text-xl">Used Mobile</Link>
   </div>
-  <div className="navbar-center hidden lg:flex">
+  <div className="navbar-end hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
      {ManuIteam}
     </ul>

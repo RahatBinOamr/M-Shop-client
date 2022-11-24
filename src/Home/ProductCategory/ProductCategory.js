@@ -5,12 +5,12 @@ const ProductCategory = () => {
     const [categories, setCatagories]= useState([])
    
     useEffect(()=>{
-        fetch(`http://localhost:5000/CoursesCategory`)
+        fetch(`http://localhost:5000/phonesCategory`)
         .then(res=>res.json())
         .then(data=> setCatagories(data))
     },[])
     return (
-        <div>
+        <div className='basis-1/4'>
             <h2 className='text-3xl font-semibold'> Total Category {categories.length} </h2>
             {
                 categories.map(category=> <p key={category.id}>

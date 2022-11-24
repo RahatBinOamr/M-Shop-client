@@ -3,6 +3,7 @@ import Home from "../Home/Home/Home";
 import Main from "../Layouts/Main";
 import ErrorPage from "../ErrorPage/ErrorPage"
 import ProductsCardDetails from "../Home/Product/ProductsCardDetails";
+import AllProducts from "../Home/Product/AllProducts";
 const router = createBrowserRouter([
     {
         path:'/',
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>
+            },
+            {
+                path:'/allproducts',
+                element:<AllProducts></AllProducts>
             },
             {
                 path:'/phones/:id',
