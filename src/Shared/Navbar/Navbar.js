@@ -10,7 +10,7 @@ const Nabvar = () => {
    <li className='font-semibold'> <Link to='/'> Home</Link> </li>
    <li className='font-semibold'> <Link to='/allproducts'> All Products</Link> </li>
    {
-    user?.email?<> <button onClick={logOut} className="btn btn-warning btn-xs">Log OUt</button> </>:
+    user?.uid?<> <button onClick={logOut} className="btn btn-warning btn-xs">Log OUt</button> </>:
     <>
     <li className='font-semibold'> <Link to='/login'>Login</Link> </li>
     </>
