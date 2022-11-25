@@ -7,7 +7,7 @@ const Nabvar = () => {
   const ManuIteam = <>
    <li className='font-semibold'> <Link to='/'> Home</Link> </li>
    <li className='font-semibold'> <Link to='/allproducts'> All Products</Link> </li>
-   <li className='font-semibold'> <Link to='/register'>Register</Link> </li>
+   
   
   </>
   
