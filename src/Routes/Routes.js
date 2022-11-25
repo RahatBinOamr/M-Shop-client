@@ -7,6 +7,7 @@ import AllProducts from "../Home/Product/AllProducts";
 import Category from "../Home/ProductCategory/Category";
 import Login from "../Login/Login";
 import SignUp from "../Login/SignUp";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
     {
         path:'/',
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/phones/:id',
-                element:<ProductsCardDetails></ProductsCardDetails>,
+                element:<PrivateRoute><ProductsCardDetails></ProductsCardDetails></PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:5000/phones/${params.id}`)
             },
             {
