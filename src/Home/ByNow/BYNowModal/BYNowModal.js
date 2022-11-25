@@ -1,8 +1,11 @@
 import { format } from "date-fns";
-import React from "react";
+import React, { useContext } from "react";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../../Context/AuthProvider";
 
 const BYNowModal = ({title,selectedDate,res_price}) => {
     const date = format(selectedDate,"PP")
+    const {user}= useContext(AuthContext)
     const handelModal = (e)=>{
         e.preventDefault()
         const form = e.target;
@@ -12,15 +15,34 @@ const BYNowModal = ({title,selectedDate,res_price}) => {
         const email = form.email.value;
         const phone = form.phone.value;
         // console.log(name,email,phone,date,price)
-        const byNow ={
-            title:title,
-            price,
-            date,
-            name,
+        const booking = {
+           date: date,
+           title:title,
+            patient: name,
+          price,
             email,
-            phone
+            phone,
         }
-        console.log(byNow);
+        console.log(booking)
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                  
+                    toast.success('Booking confirmed');
+                    // refetch();
+                }
+                else{
+                    toast.error(data.message);
+                }
+            })
     }
   return (
     <>
@@ -39,8 +61,9 @@ const BYNowModal = ({title,selectedDate,res_price}) => {
           <form onSubmit={handelModal}>
           <input name="date" type="text" defaultValue={date} disabled className="input input-bordered input-warning w-full mt-3 " />
           <input name="price" type="text" defaultValue={`price:$${res_price}`} disabled className="input input-bordered input-warning w-full mt-3 " /> 
-          <input name="name" type="text" placeholder="Your Name" className="input input-bordered input-warning w-full mt-3 " />
-          <input name="email" type="email" placeholder="Your Email" className="input input-bordered input-warning w-full mt-3 " />
+          <input name="email" type="email" defaultValue={user?.email} disabled className="input input-bordered input-warning w-full mt-3 " />
+          <input name="name" type="text" defaultValue={user?.displayName} disabled className="input input-bordered input-warning w-full mt-3 " />
+          
           <input name="phone" type="text" placeholder="Your Phone Number" className="input input-bordered input-warning w-full mt-3 " />
           
           <input type="submit" className="btn btn-warning mt-3 w-full" value="submit" />
