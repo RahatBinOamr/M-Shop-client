@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import img from "../../assets/banner/images.jpg"
+import { AuthContext } from "../../Context/AuthProvider";
 
 
 const Nabvar = () => {
+  const {user,logOut}=useContext(AuthContext)
   const ManuIteam = <>
    <li className='font-semibold'> <Link to='/'> Home</Link> </li>
    <li className='font-semibold'> <Link to='/allproducts'> All Products</Link> </li>
+   {
+    user?.email?<> <button onClick={logOut} className="btn btn-warning btn-xs">Log OUt</button> </>:
+    <>
+    <li className='font-semibold'> <Link to='/login'>Login</Link> </li>
+    </>
+   }
+   
    
   
   </>
@@ -28,11 +37,10 @@ const Nabvar = () => {
   <div className="navbar-end hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
      {ManuIteam}
+     
     </ul>
   </div>
-  <div className="navbar-end">
-    <Link clssName="btn ">Get started</Link>
-  </div>
+ 
 </div>
   );
 };
