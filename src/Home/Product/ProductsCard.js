@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ProductsCard = ({ product }) => {
-    const {title,img,pre_price,res_price,_id}=product
+    const {title,img,pre_price,res_price,_id,location }=product
 //   console.log(product.res_price);
   
   return (
@@ -16,11 +16,12 @@ const ProductsCard = ({ product }) => {
             {title}
             
           </h2>
-          <p>preVious Price: ${pre_price}  </p>
-          <p>Recent Price: ${res_price}  </p>
+          <p className="font-semibold">Orgenial Price: ${pre_price}  </p>
+          <p className="font-semibold">Recent Price: ${res_price}  </p>
+          <p className="font-semibold">Location: {location}  </p>
           <div className="card-actions justify-end">
-          <Link to={`/phones/${_id}`}><button className="btn btn-outline btn-warning">Details</button></Link>
-          <button className="btn btn-outline btn-warning">Sell</button>
+          <Link  to={`/phones/${_id}`}><button className="btn btn-outline btn-warning">Details</button></Link>
+          
           </div>
         </div>
       </div>

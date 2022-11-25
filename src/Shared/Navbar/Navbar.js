@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import img from "../../assets/banner/images.jpg"
 
 
 const Nabvar = () => {
@@ -21,6 +21,7 @@ const Nabvar = () => {
        {ManuIteam}
       </ul>
     </div>
+    <img className="rounded-full" style={{width:'50px', height:'50px' }} src={img} alt=""/>
     <Link to='/' className="btn btn-ghost normal-case text-xl">Used Mobile</Link>
   </div>
   <div className="navbar-end hidden lg:flex">

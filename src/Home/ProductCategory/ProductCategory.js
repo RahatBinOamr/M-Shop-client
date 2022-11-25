@@ -5,7 +5,7 @@ const ProductCategory = () => {
     const [categories, setCatagories]= useState([])
    
     useEffect(()=>{
-        fetch(`http://localhost:5000/phonesCategory`)
+        fetch(`http://localhost:5000/category`)
         .then(res=>res.json())
         .then(data=> setCatagories(data))
     },[])
@@ -13,8 +13,8 @@ const ProductCategory = () => {
         <div className='basis-1/4'>
             <h2 className='text-3xl font-semibold'> Total Category {categories.length} </h2>
             {
-                categories.map(category=> <p key={category.id}>
-                    <Link to={`/category/${category.id}`}> {category.name} </Link>
+                categories.map(categoryPhones=>  <p key={categoryPhones._id}>
+                    <Link to={`/category/${categoryPhones.id}`}> {categoryPhones.name} </Link>
 
                 </p> )
             }
