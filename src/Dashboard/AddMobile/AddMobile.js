@@ -3,8 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 const AddCard = () => {
     const navigate = useNavigate()
+    const imageHostKey = process.env.REACT_APP_ibb_key;
+    console.log(imageHostKey);
   const handelForm = (e) => {
     e.preventDefault();
+    
     const form = e.target;
     const phone = form.phone.value;
     const oPrice = form.oPrice.value;
@@ -46,8 +49,8 @@ const AddCard = () => {
   
   return (
     <div>
-      <h2 className="text-xl font-semibold">Add Mobile</h2>
-      <div className="w-1/2 mt-10">
+      <h2 className="text-xl font-semibold rounded-sm">Add Mobile</h2>
+      <div className="w-full lg:w-1/2 items-center mt-10 bg-base-200 shadow-xl p-10 m-10 ">
         <form
           onSubmit={handelForm}
           className=" grid grid-cols-1 lg:grid-cols-2 gap-5"
@@ -55,36 +58,43 @@ const AddCard = () => {
           <input
             name="phone"
             type="text"
+            required
             placeholder="Phone Name or Model"
             className="input input-bordered input-warning w-full max-w-xs"
           />
           <input
             name="oPrice"
             type="text"
+            required
             placeholder="Orginal Price"
             className="input input-bordered input-warning w-full max-w-xs"
           />
           <input
             name="rPrice"
             type="text"
+            required
             placeholder="Recent Price"
             className="input input-bordered input-warning w-full max-w-xs"
           />
           <input
             name="location"
             type="text"
+            required
             placeholder="Location"
             className="input input-bordered input-warning w-full max-w-xs"
           />
           <input
             name="id"
             type="text"
+            required
             placeholder="
+            
             category_id (01-05)This type"
             className="input input-bordered input-warning w-full max-w-xs"
           />
           <input
             name="name"
+            required
             type="text"
             placeholder="Seller Name"
             className="input input-bordered input-warning w-full max-w-xs"
@@ -92,20 +102,23 @@ const AddCard = () => {
           <input
             name="used"
             type="text"
+            required
             placeholder="Used"
             className="input input-bordered input-warning w-full max-w-xs"
           />
           <input
             name="img"
             type="text"
-            placeholder="img"
+            required
+           placeholder="img"
             className="input input-bordered input-warning w-full max-w-xs"
           />{" "}
           
           <div>
           <textarea
             name="details"
-            style={{ width: "480px" }}
+            required
+            style={{ width: "400px" }}
             className="textarea textarea-bordered h-60 "
             placeholder="Details"
           ></textarea>{" "}
@@ -113,7 +126,7 @@ const AddCard = () => {
           <br />
           <input
             type="submit"
-            className="btn btn-outline btn-warning w-full"
+            className="btn btn-warning w-full"
             value="Submit"
           />
         </form>

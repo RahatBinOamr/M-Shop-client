@@ -14,6 +14,7 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 import AllUser from "../Dashboard/MyPhones/AllUser/AllUser";
 import AdminRoute from "./AdminRoute";
 import AddCard from "../Dashboard/AddMobile/AddMobile";
+import Payment from "../Dashboard/Payment";
 const router = createBrowserRouter([
     {
         path:'/',
@@ -61,6 +62,12 @@ const router = createBrowserRouter([
                     {
                         path:'/dashboard/addMobile',
                         element:<AdminRoute><AddCard></AddCard> </AdminRoute>
+                    },
+                    {
+                        path:'/dashboard/payment/:id',
+                        element:<AdminRoute> <Payment></Payment> </AdminRoute>,
+                        loader:({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)
+
                     },
                 ]
             }

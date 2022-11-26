@@ -71,7 +71,7 @@ const Nabvar = () => {
           alt=""
         />
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-          Used Mobile
+           <span className="text-warning font-bold text-xl">M</span> -Shop
         </Link>
       </div>
      
