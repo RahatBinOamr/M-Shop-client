@@ -4,11 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/AuthProvider';
 import useToken from '../Hook/useToken';
+import Loading from '../Shared/Loading';
 
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser, updateUser } = useContext(AuthContext);
+    const { createUser, updateUser,loading } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
     const [createdUserEmail, setCreatedUserEmail] = useState('')
     const [token] = useToken(createdUserEmail);
@@ -53,6 +54,9 @@ const SignUp = () => {
         .then(data =>{
             setCreatedUserEmail(email);
         })
+    }
+    if(loading){
+        <Loading></Loading>
     }
     return (
         <div className='h-[800px] flex justify-center items-center'>

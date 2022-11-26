@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { toast } from "react-toastify";
+import Loading from "../../../Shared/Loading";
 
 const AllUser = () => {
-  const { data: users = [], refetch } = useQuery({
+  const { data: users = [], refetch ,isLoading} = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await fetch("http://localhost:5000/users");
@@ -24,7 +25,11 @@ const AllUser = () => {
             toast.success('Make admin successful.')
             refetch();
         }
+      console.log(data)
     })
+}
+if(isLoading){
+  <Loading></Loading>
 }
   return (
     <div>

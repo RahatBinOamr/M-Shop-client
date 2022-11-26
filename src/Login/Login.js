@@ -4,11 +4,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/AuthProvider';
 import useToken from '../Hook/useToken';
+import Loading from '../Shared/Loading';
 
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { signIn } = useContext(AuthContext);
+    const { signIn,loading } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const [loginUserEmail, setLoginUserEmail] = useState('');
     const [token] = useToken(loginUserEmail);
@@ -37,7 +38,9 @@ const Login = () => {
             });
     }
 
-
+if(loading){
+    <Loading></Loading>
+}
     return (
         <div className='h-[800px] flex justify-center items-center'>
             <div className='w-96 p-7'>
