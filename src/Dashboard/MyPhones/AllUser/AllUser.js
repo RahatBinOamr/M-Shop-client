@@ -42,7 +42,7 @@ if(isLoading){
               <th>Name</th>
               <th>Email</th>
               <th>Admin</th>
-              <th>Delete</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -61,9 +61,7 @@ if(isLoading){
                     </button>
                   )}
                 </td>
-                <td>
-                  <button className="btn btn-xs btn-danger">Delete</button>
-                </td>
+               
               </tr>
             ))}
           </tbody>

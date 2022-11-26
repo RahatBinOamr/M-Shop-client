@@ -12,6 +12,8 @@ import Dashboard from "../Dashboard/Dashboard";
 import MyPhones from "../Dashboard/MyPhones/MyPhones";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import AllUser from "../Dashboard/MyPhones/AllUser/AllUser";
+import AdminRoute from "./AdminRoute";
+import AddCard from "../Dashboard/AddMobile/AddMobile";
 const router = createBrowserRouter([
     {
         path:'/',
@@ -54,7 +56,11 @@ const router = createBrowserRouter([
                     },
                     {
                         path:'/dashboard/allUsers',
-                        element:<AllUser></AllUser>
+                        element:<AdminRoute><AllUser></AllUser></AdminRoute>
+                    },
+                    {
+                        path:'/dashboard/addMobile',
+                        element:<AdminRoute><AddCard></AddCard> </AdminRoute>
                     },
                 ]
             }
