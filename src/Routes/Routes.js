@@ -8,6 +8,10 @@ import Category from "../Home/ProductCategory/Category";
 import Login from "../Login/Login";
 import SignUp from "../Login/SignUp";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Dashboard/Dashboard";
+import MyPhones from "../Dashboard/MyPhones/MyPhones";
+import DashboardLayout from "../Layouts/DashboardLayout";
+import AllUser from "../Dashboard/MyPhones/AllUser/AllUser";
 const router = createBrowserRouter([
     {
         path:'/',
@@ -39,6 +43,20 @@ const router = createBrowserRouter([
             {
                 path:'/signup',
                 element:<SignUp></SignUp>
+            },
+            {
+                path:'/dashboard',
+                element:<DashboardLayout></DashboardLayout>,
+                children:[
+                    {
+                        path:'/dashboard',
+                        element:<MyPhones></MyPhones>
+                    },
+                    {
+                        path:'dashboard/allusers',
+                        element:<AllUser></AllUser>
+                    },
+                ]
             }
             
         ]

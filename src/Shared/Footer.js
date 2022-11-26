@@ -9,7 +9,7 @@ const Footer = () => {
             <img src={img} alt=''/>
           </div>
           <p>
-            Used Phone
+            <span className="text-xl text-warning font-semibold">Used Phone</span>
             <br />
             Providing reliable tech since 2021
           </p>
