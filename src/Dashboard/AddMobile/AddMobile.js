@@ -16,6 +16,7 @@ const AddCard = () => {
     const oPrice = form.oPrice.value;
     const rPrice = form.rPrice.value;
     const location = form.location.value;
+    const number= form.number.value;
     const id = form.id.value;
     const name = form.name.value;
     const used = form.used.value;
@@ -32,6 +33,7 @@ const AddCard = () => {
       img,
       details,
       used,
+      pNumber:number
     };
     console.log(phones)
     fetch(`https://used-mobile-server.vercel.app/phoneAdd`, {
@@ -64,7 +66,7 @@ const AddCard = () => {
             name="phone"
             type="text"
             required
-            placeholder="Phone Name or Model"
+            placeholder="Phone Model"
             className="input input-bordered input-warning w-full max-w-xs"
           />
           <input
@@ -86,6 +88,13 @@ const AddCard = () => {
             type="text"
             required
             placeholder="Location"
+            className="input input-bordered input-warning w-full max-w-xs"
+          />
+          <input
+            name="number"
+            type="text"
+            required
+            placeholder="Phone Number"
             className="input input-bordered input-warning w-full max-w-xs"
           />
           <input
@@ -115,10 +124,10 @@ const AddCard = () => {
             name="img"
             type="text"
             required
-           placeholder="img"
+           placeholder="img url"
             className="input input-bordered input-warning w-full max-w-xs"
           />{" "}
-          
+          <br />
           <div>
           <textarea
             name="details"
