@@ -1,3 +1,26 @@
+# Live Link: https://used-phone-ee00b.web.app/
+# server : https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-RahatBinOamr
+# client : https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-RahatBinOamr
+_____________________________________________________________
+
+# Admin Email: xyz5@gmail.com
+# Admin Password : @12345R
+
+____________________________________________________________
+
+* project statement
+1. first create react app install react router dom and install tailwind dasiyUI 
+2. Then Create Navbar Where Home AllProduct Blog and Dashboard and Login routes setup
+3. Then  first create Home Component where use Home banner Product category and footer
+4. Then create Layouts Component where Main and Outlet and footer component setup .
+5. Then create Router component .and router setup from app component using RouterProvider.
+6. Then Main component connected from Router component 
+7. Then Main component children use product component Home component Blog component dashboard component login component.
+8. Then create Dashboard component where use admin system .
+9. Then dashboard component use MyPhones AddPhones AllUser and Report component.
+10. where AllUser AddPhone and Report secure from admin login
+11. Then deploy firebase .
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
