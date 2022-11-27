@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div className='mb-10'>
             <Banner></Banner>
-            <div className='flex flex-row '>
+            <div className='flex flex-row sm:flex-shrink-0  '>
                
                 <ProductCategory></ProductCategory>
                

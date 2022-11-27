@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import useTitle from "../../Hook/UseTitle";
 
 const AddCard = () => {
@@ -33,7 +34,7 @@ const AddCard = () => {
       used,
     };
     console.log(phones)
-    fetch(`http://localhost:5000/phoneAdd`, {
+    fetch(`https://used-mobile-server.vercel.app/phoneAdd`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -45,6 +46,7 @@ const AddCard = () => {
     .then((data) => {
       if (data.acknowledged) {
         navigate('/')
+        toast.success('Add Mobile Successfully')
       }
       console.log(data);
     });

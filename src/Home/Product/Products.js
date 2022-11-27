@@ -5,7 +5,7 @@ import ProductsCard from "./ProductsCard";
 const Products = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/phones`)
+    fetch(`https://used-mobile-server.vercel.app/phones`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

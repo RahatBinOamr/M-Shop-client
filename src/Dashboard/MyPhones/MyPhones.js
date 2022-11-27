@@ -8,9 +8,9 @@ import Loading from "../../Shared/Loading";
 const MyPhones = () => {
   useTitle("MyPhones");
   const { user } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
-  const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  const url = `https://used-mobile-server.vercel.app/bookings?email=${user?.email}`;
   // console.log(url);
   const { data: bookings = [], isLoading } = useQuery({
     queryKey: ["bookings", user?.email],
@@ -27,7 +27,7 @@ const MyPhones = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
-  console.log(bookings);
+  // console.log(bookings);
   return (
     <div>
       <h3 className="text-3xl mb-5">My Phones</h3>

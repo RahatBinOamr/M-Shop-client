@@ -30,7 +30,7 @@ const BYNowModal = ({title,selectedDate,res_price}) => {
             phone,
         }
         console.log(booking)
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://used-mobile-server.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -7,7 +7,7 @@ const ProductsCard = ({ product }) => {
     const {title,img,pre_price,res_price,_id,location }=product
 //   console.log(product.res_price);
   const handelReport = ()=>{
-    fetch(`http://localhost:5000/report`,{
+    fetch(`https://used-mobile-server.vercel.app/report`,{
       method:"POST",
       headers:{
         'content-type':'application/json'

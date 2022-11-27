@@ -6,7 +6,7 @@ import useTitle from '../Hook/UseTitle';
 import CheckoutForm from './CheckoutForm';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
-console.log(stripePromise)
+// console.log(stripePromise)
 const Payment = () => {
     useTitle('payment')
     const booking  = useLoaderData()

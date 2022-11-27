@@ -7,14 +7,14 @@ const Report = () => {
     const { data: reportData = [],isLoading} = useQuery({
         queryKey: ["users"],
         queryFn: async () => {
-          const res = await fetch("http://localhost:5000/report");
+          const res = await fetch("https://used-mobile-server.vercel.app/report");
           const data = await res.json();
           return data;
         },
       });
  /*  const [reportData, setReportData] = useState({});
  useEffect(()=>{
-    fetch(`http://localhost:5000/report`)
+    fetch(`https://used-mobile-server.vercel.app/report`)
     .then((res) => res.json())
     .then((data) => {
       setReportData(data);

@@ -34,12 +34,12 @@ const router = createBrowserRouter([
             {
                 path:'/phones/:id',
                 element:<PrivateRoute><ProductsCardDetails></ProductsCardDetails></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/phones/${params.id}`)
+                loader:({params})=>fetch(`https://used-mobile-server.vercel.app/phones/${params.id}`)
             },
             {
                 path:'/category/:id',
                 element:<Category></Category>,
-                loader:({params})=>fetch(`http://localhost:5000/category/${params.id}`)
+                loader:({params})=>fetch(`https://used-mobile-server.vercel.app/category/${params.id}`)
             },
             {
                 path:'/login',
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
                     {
                         path:'/dashboard/payment/:id',
                         element:<Payment></Payment>,
-                        loader:({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)
+                        loader:({params})=>fetch(`https://used-mobile-server.vercel.app/bookings/${params.id}`)
 
                     },
                 ]
