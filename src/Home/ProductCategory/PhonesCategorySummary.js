@@ -35,7 +35,7 @@ const PhonesCategorySummary = ({ phoneCategory }) => {
             <Link to={`/phones/${_id}`}>
               <button className="btn btn-outline btn-warning">Details</button>
             </Link>
-            <button onFocus={()=>setReport(phoneCategory)} onClick={handelReport} className="btn btn-primary"> Report</button>
+            <button onFocus={()=>setReport(phoneCategory)} onClick={handelReport} className="btn btn-warning"> Report</button>
           </div>
         
         </div>

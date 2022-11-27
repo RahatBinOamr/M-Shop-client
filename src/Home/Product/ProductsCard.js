@@ -37,7 +37,7 @@ const ProductsCard = ({ product }) => {
           <p className="font-semibold">Phone Number: {pNumber}  </p>
           <div className="card-actions justify-end">
           <Link  to={`/phones/${_id}`}><button className="btn btn-outline btn-warning">Details</button></Link>
-          <button onFocus={()=>setReport(product)} onClick={handelReport} className="btn btn-primary"> Report</button>
+          <button onFocus={()=>setReport(product)} onClick={handelReport} className="btn btn-warning"> Report</button>
           
           </div>
         </div>
