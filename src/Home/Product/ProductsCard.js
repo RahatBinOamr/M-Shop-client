@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ProductsCard = ({ product }) => {
+  const [report,setReport]=useState(null)
     const {title,img,pre_price,res_price,_id,location }=product
 //   console.log(product.res_price);
-  
+  const handelReport = ()=>{
+    fetch(`http://localhost:5000/report`,{
+      method:"POST",
+      headers:{
+        'content-type':'application/json'
+      },
+      body:JSON.stringify(report)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data);
+      toast.success('report successfully')
+    })
+  }
   return (
     <div>
       <div className="card w-full bg-base-100 shadow-xl">
@@ -21,6 +36,7 @@ const ProductsCard = ({ product }) => {
           <p className="font-semibold">Location: {location}  </p>
           <div className="card-actions justify-end">
           <Link  to={`/phones/${_id}`}><button className="btn btn-outline btn-warning">Details</button></Link>
+          <button onFocus={()=>setReport(product)} onClick={handelReport} className="btn btn-primary"> Report</button>
           
           </div>
         </div>

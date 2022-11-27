@@ -1,7 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import useTitle from "../../Hook/UseTitle";
 
 const AddCard = () => {
+  useTitle('AddMobile')
     const navigate = useNavigate()
     const imageHostKey = process.env.REACT_APP_ibb_key;
     console.log(imageHostKey);
@@ -35,6 +37,7 @@ const AddCard = () => {
     method: "POST",
     headers: {
       "content-type": "application/json",
+      authorization: `bearer ${localStorage.getItem('accessToken')}`
     },
     body: JSON.stringify(phones),
   })

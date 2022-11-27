@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { HandThumbDownIcon } from '@heroicons/react/24/solid'
+import useTitle from '../Hook/UseTitle';
 const ErrorPage = () => {
+  useTitle('errorPage')
     return (
         <section className='flex items-center h-screen p-16 bg-gray-100 text-gray-900'>
         <div className='container flex flex-col items-center justify-center px-5 mx-auto my-8'>

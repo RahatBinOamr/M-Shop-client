@@ -10,7 +10,7 @@ const ProductCategory = () => {
         .then(data=> setCatagories(data))
     },[])
     return (
-        <div className='basis-1/4'>
+        <div className='basis-1/4 '>
             <h2 className='text-3xl font-semibold'> Total Category {categories.length} </h2>
             {
                 categories.map(categoryPhones=>  <p key={categoryPhones._id}>

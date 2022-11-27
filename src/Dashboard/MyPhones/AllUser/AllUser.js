@@ -1,9 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
+
 import Loading from "../../../Shared/Loading";
 
 const AllUser = () => {
+
+  const [deleteUser,setDeleteUser]=useState(null)
   const { data: users = [], refetch ,isLoading} = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
@@ -28,6 +31,25 @@ const AllUser = () => {
       console.log(data)
     })
 }
+const handelDeleteUser = ()=>{
+fetch(`http://localhost:5000/users`,{
+  method:"DELETE",
+  headers: {
+    // authorization: `bearer ${localStorage.getItem('accessToken')}`
+    'content-type':'application/json'
+},
+body:JSON.stringify(deleteUser)
+})
+.then(res=>res.json())
+.then(data=>{
+  if(data.acknowledged){
+    toast.success('delete successfully')
+    refetch()
+
+  }
+  console.log(data)
+})
+}
 if(isLoading){
   <Loading></Loading>
 }
@@ -42,6 +64,7 @@ if(isLoading){
               <th>Name</th>
               <th>Email</th>
               <th>Admin</th>
+              <th>Delete</th>
               
             </tr>
           </thead>
@@ -61,6 +84,7 @@ if(isLoading){
                     </button>
                   )}
                 </td>
+                <td> <button onFocus={()=>setDeleteUser(user)} onClick={handelDeleteUser} className="btn bg-warning btn-xs"> Delete</button> </td>
                
               </tr>
             ))}

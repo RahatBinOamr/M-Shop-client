@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import img from "../../assets/banner/images.jpg";
 import { AuthContext } from "../../Context/AuthProvider";
+import ProductCategory from "../../Home/ProductCategory/ProductCategory";
 
 const Nabvar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -14,6 +15,10 @@ const Nabvar = () => {
       <li className="font-semibold">
         {" "}
         <Link to="/allproducts"> All Products</Link>{" "}
+      </li>
+      <li className="font-semibold">
+        {" "}
+        <Link to="/blog"> Blog</Link>{" "}
       </li>
       <li className="font-semibold">
         {" "}
@@ -99,6 +104,7 @@ const Nabvar = () => {
           />
         </svg>
       </label>
+      
     </div>
     </div>
   );

@@ -2,11 +2,13 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../Hook/UseTitle';
 import CheckoutForm from './CheckoutForm';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 console.log(stripePromise)
 const Payment = () => {
+    useTitle('payment')
     const booking  = useLoaderData()
     console.log(booking)
     const {title,price,date}=booking

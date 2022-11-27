@@ -15,6 +15,8 @@ import AllUser from "../Dashboard/MyPhones/AllUser/AllUser";
 import AdminRoute from "./AdminRoute";
 import AddCard from "../Dashboard/AddMobile/AddMobile";
 import Payment from "../Dashboard/Payment";
+import Blog from "../Blog/Blog";
+import Report from "../Dashboard/Report";
 const router = createBrowserRouter([
     {
         path:'/',
@@ -48,6 +50,10 @@ const router = createBrowserRouter([
                 element:<SignUp></SignUp>
             },
             {
+                path:'/blog',
+                element:<Blog></Blog>
+            },
+            {
                 path:'/dashboard',
                 element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
                 children:[
@@ -64,8 +70,12 @@ const router = createBrowserRouter([
                         element:<AdminRoute><AddCard></AddCard> </AdminRoute>
                     },
                     {
+                        path:'/dashboard/addReport',
+                        element:<AdminRoute> <Report></Report> </AdminRoute>
+                    },
+                    {
                         path:'/dashboard/payment/:id',
-                        element:<AdminRoute> <Payment></Payment> </AdminRoute>,
+                        element:<Payment></Payment>,
                         loader:({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)
 
                     },

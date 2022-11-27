@@ -3,8 +3,10 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../../Context/AuthProvider";
+import useTitle from "../../../Hook/UseTitle";
 
 const BYNowModal = ({title,selectedDate,res_price}) => {
+  useTitle('ByNowModal')
     const date = format(selectedDate,"PP")
     const {user}= useContext(AuthContext)
     const navigate=useNavigate()

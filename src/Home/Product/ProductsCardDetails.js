@@ -3,9 +3,11 @@ import { format } from "date-fns";
 import React, { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import { Link, useLoaderData } from "react-router-dom";
+import useTitle from "../../Hook/UseTitle";
 import BYNowModal from "../ByNow/BYNowModal/BYNowModal";
 
 const ProductsCardDetails = () => {
+  useTitle('CardDetails')
   const phonesDetails = useLoaderData();
   const { title, img, pre_price, res_price, details, location, seller, used } =
     phonesDetails;

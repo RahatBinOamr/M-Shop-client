@@ -3,13 +3,15 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/AuthProvider';
+import useTitle from '../Hook/UseTitle';
 import useToken from '../Hook/useToken';
 import Loading from '../Shared/Loading';
 
 
 const SignUp = () => {
+    useTitle('signUp')
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser, updateUser,loading } = useContext(AuthContext);
+    const { createUser, updateUser,loading , signInGoogle} = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
     const [createdUserEmail, setCreatedUserEmail] = useState('')
     const [token] = useToken(createdUserEmail);
@@ -55,6 +57,18 @@ const SignUp = () => {
             setCreatedUserEmail(email);
         })
     }
+    const handelGoogleLogin = ()=>{
+        signInGoogle()
+        .then((result) => {
+            const user = result.user;
+            console.log(user);
+            navigate('/')
+           
+          }).catch((error) => {
+            const errorMessage = error.message;
+            setSignUPError(errorMessage)
+          });
+    }
     if(loading){
         <Loading></Loading>
     }
@@ -91,7 +105,7 @@ const SignUp = () => {
                 </form>
                 <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline btn-warning w-full'>CONTINUE WITH GOOGLE</button>
+                <button onClick={handelGoogleLogin} className='btn btn-outline btn-warning w-full'>CONTINUE WITH GOOGLE</button>
 
             </div>
         </div>
