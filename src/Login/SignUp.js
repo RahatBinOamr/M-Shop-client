@@ -1,3 +1,4 @@
+import { type } from "@testing-library/user-event/dist/type";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,6 +15,7 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+ 
   const { createUser, updateUser, loading, signInGoogle } =
     useContext(AuthContext);
   const [signUpError, setSignUPError] = useState("");
@@ -37,7 +39,13 @@ const SignUp = () => {
         };
         updateUser(userInfo)
           .then(() => {
-            saveUser(data.name, data.email);
+
+
+            const type = document.getElementById('type')
+            console.log(type)
+
+
+            saveUser(data.name, data.email,type.value);
           })
           .catch((err) => console.log(err));
       })
@@ -58,8 +66,8 @@ const SignUp = () => {
         setSignUPError(errorMessage);
       });
   };
-  const saveUser = (name, email) => {
-    const user = { name, email };
+  const saveUser = (name, email,type) => {
+    const user = { name, email,type };
     fetch("https://used-mobile-server.vercel.app/users", {
       method: "POST",
       headers: {
@@ -138,9 +146,13 @@ const SignUp = () => {
               <p className="text-red-500">{errors.password.message}</p>
             )}
           </div>
-          <select className="select select-warning w-full max-w-xs mt-5 mb-5">
-            <option>Seller</option>
-            <option>Beyer</option>
+          <select id="type" className="select select-warning w-full max-w-xs mt-5 mb-5">
+            <option 
+                        
+            > Seller</option>
+            <option
+              
+            >Beyer</option>
           </select>
           <input
             className="btn btn-warning w-full mt-4"

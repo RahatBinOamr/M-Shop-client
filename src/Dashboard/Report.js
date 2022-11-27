@@ -12,14 +12,7 @@ const Report = () => {
           return data;
         },
       });
- /*  const [reportData, setReportData] = useState({});
- useEffect(()=>{
-    fetch(`https://used-mobile-server.vercel.app/report`)
-    .then((res) => res.json())
-    .then((data) => {
-      setReportData(data);
-    });
- },[]) */
+
   console.log(reportData.title);
   if(isLoading){
     <Loading></Loading>

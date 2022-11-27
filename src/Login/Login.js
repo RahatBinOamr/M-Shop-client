@@ -103,12 +103,7 @@ const Login = () => {
               <p className="text-red-600">{errors.password?.message}</p>
             )}
           </div>
-          <select className="select select-warning w-full max-w-xs mt-5 mb-5">
-            
-            <option>Seller</option>
-            <option>Beyer</option>
-            
-          </select>
+       
           <input
             className="btn btn-warning w-full"
             value="Login"

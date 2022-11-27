@@ -17,6 +17,8 @@ import AddCard from "../Dashboard/AddMobile/AddMobile";
 import Payment from "../Dashboard/Payment";
 import Blog from "../Blog/Blog";
 import Report from "../Dashboard/Report";
+import Beyer from "../Dashboard/Beyer";
+import Seller from "../Dashboard/Seller";
 const router = createBrowserRouter([
     {
         path:'/',
@@ -72,6 +74,14 @@ const router = createBrowserRouter([
                     {
                         path:'/dashboard/addReport',
                         element:<AdminRoute> <Report></Report> </AdminRoute>
+                    },
+                    {
+                        path:'/dashboard/addBeyer',
+                        element:<AdminRoute><Beyer></Beyer> </AdminRoute>
+                    },
+                    {
+                        path:'/dashboard/addSeller',
+                        element:<AdminRoute> <Seller></Seller> </AdminRoute>
                     },
                     {
                         path:'/dashboard/payment/:id',

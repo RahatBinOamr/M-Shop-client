@@ -27,6 +27,9 @@ const MyPhones = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+  if(!bookings){
+    return <Loading></Loading>
+  }
   // console.log(bookings);
   return (
     <div>
@@ -36,8 +39,6 @@ const MyPhones = () => {
           <thead>
             <tr>
               <th></th>
-              
-
               <th>name</th>
               <th>Phone</th>
               <th>Price</th>
