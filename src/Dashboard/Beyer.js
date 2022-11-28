@@ -39,7 +39,7 @@ const Beyer = () => {
                 <td>{beyer.name}</td>
                 <td>{beyer.email}</td>
                 <td>{
-                  beyer?.verify==='true'?'verified':'not verified'
+                  beyer?.type===beyer.type?'verified':'not verified'
                   
                   }</td>
               </tr>
