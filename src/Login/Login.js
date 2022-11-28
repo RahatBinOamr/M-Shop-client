@@ -8,6 +8,7 @@ import useToken from "../Hook/useToken";
 import Loading from "../Shared/Loading";
 
 const Login = () => {
+
   useTitle("login");
   const {
     register,
@@ -46,12 +47,30 @@ const Login = () => {
     signInGoogle()
       .then((result) => {
         const user = result.user;
+        const type='Beyer'
+        GoogleSaveUser(user.displayName, user.email,type)
         console.log(user);
-        navigate(from, { replace: true });
+        // navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
         toast.error(errorMessage)
+        // setSignUPError(errorMessage);
+      });
+  };
+  const GoogleSaveUser = (name, email,type) => {
+    const user = { name, email,type };
+    console.log(user)
+    fetch("https://used-mobile-server.vercel.app/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+       setLoginUserEmail(email);
       });
   };
 

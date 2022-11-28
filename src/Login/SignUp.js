@@ -50,12 +50,34 @@ const SignUp = () => {
         setSignUPError(error.message);
       });
   };
+
+  const saveUser = (name, email,type) => {
+    const user = { name, email,type };
+    fetch("https://used-mobile-server.vercel.app/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCreatedUserEmail(email);
+      });
+  };
+
+
+
+
+
   const handelGoogleLogin = () => {
     signInGoogle()
       .then((result) => {
         const user = result.user;
+        const type='Beyer'
+        GoogleSaveUser(user.displayName, user.email,type)
         console.log(user);
-        navigate("/");
+        // navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -63,8 +85,9 @@ const SignUp = () => {
         // setSignUPError(errorMessage);
       });
   };
-  const saveUser = (name, email,type) => {
+  const GoogleSaveUser = (name, email,type) => {
     const user = { name, email,type };
+    console.log(user)
     fetch("https://used-mobile-server.vercel.app/users", {
       method: "POST",
       headers: {
