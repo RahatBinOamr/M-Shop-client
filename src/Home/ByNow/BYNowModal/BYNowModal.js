@@ -43,7 +43,7 @@ const BYNowModal = ({title,selectedDate,res_price}) => {
                 if (data.acknowledged) {
                   
                     toast.success('Booking confirmed');
-                    navigate('/')
+                    navigate('/dashboard')
                 }
                 else{
                     toast.error(data.message);

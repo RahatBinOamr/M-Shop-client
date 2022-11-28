@@ -22,6 +22,7 @@ const AddCard = () => {
     const used = form.used.value;
     const img = form.img.value;
     const details = form.details.value;
+    const type= document.getElementById('type')
     // console.log(phone, oPrice, rPrice, location, id, name, img, details);
     const phones = {
       pre_price: oPrice,
@@ -33,6 +34,7 @@ const AddCard = () => {
       img,
       details,
       used,
+      verify:type.value,
       pNumber:number
     };
     console.log(phones)
@@ -127,7 +129,12 @@ const AddCard = () => {
            placeholder="img url"
             className="input input-bordered input-warning w-full max-w-xs"
           />{" "}
-          <br />
+          <select id="type" className="select select-warning w-full max-w-xs ">
+          <option disabled selected>Select Verify</option>
+            <option> true</option>
+            <option>false</option>
+          </select>
+         
           <div>
           <textarea
             name="details"
