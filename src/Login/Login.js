@@ -51,7 +51,7 @@ const Login = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        setLoginError(errorMessage);
+        toast.error(errorMessage)
       });
   };
 

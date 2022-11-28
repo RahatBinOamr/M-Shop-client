@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import useTitle from '../Hook/UseTitle';
 import Loading from '../Shared/Loading';
 
 const Beyer = () => {
+  useTitle('beyer')
     const { data: beyerData = [],isLoading} = useQuery({
         queryKey: ["users"],
         queryFn: async () => {
@@ -25,7 +27,7 @@ const Beyer = () => {
               <th></th>
               <th>Name</th>
               <th>Email</th>
-              <th>Type</th>
+              <th>Status</th>
            
             </tr>
           </thead>
@@ -36,7 +38,10 @@ const Beyer = () => {
                 
                 <td>{beyer.name}</td>
                 <td>{beyer.email}</td>
-                <td>{beyer.type}</td>
+                <td>{
+                  beyer?.verify==='true'?'verified':'not verified'
+                  
+                  }</td>
               </tr>
             ))}
           </tbody>

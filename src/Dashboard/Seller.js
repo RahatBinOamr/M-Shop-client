@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import useTitle from '../Hook/UseTitle';
 import Loading from '../Shared/Loading';
 
 const Beyer = () => {
+  useTitle('seller')
     const { data: sellerData = [],isLoading} = useQuery({
         queryKey: ["users"],
         queryFn: async () => {
@@ -11,13 +13,15 @@ const Beyer = () => {
           return data;
         },
       });
+
+      
     //   console.log(beyerseller);
       if(isLoading){
         <Loading></Loading>
       }
     return (
         <div>
-            <h2 className='text-xl font-semibold'>All Beyer</h2>
+            <h2 className='text-xl font-semibold'>All Seller</h2>
             <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>

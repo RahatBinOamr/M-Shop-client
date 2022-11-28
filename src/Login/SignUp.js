@@ -39,12 +39,8 @@ const SignUp = () => {
         };
         updateUser(userInfo)
           .then(() => {
-
-
             const type = document.getElementById('type')
             console.log(type)
-
-
             saveUser(data.name, data.email,type.value);
           })
           .catch((err) => console.log(err));
@@ -63,7 +59,8 @@ const SignUp = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        setSignUPError(errorMessage);
+        toast.error(errorMessage)
+        // setSignUPError(errorMessage);
       });
   };
   const saveUser = (name, email,type) => {

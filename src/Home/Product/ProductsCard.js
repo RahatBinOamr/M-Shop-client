@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const ProductsCard = ({ product }) => {
+
   const [report,setReport]=useState(null)
-    const {title,img,pre_price,res_price,_id,location,pNumber }=product
-//   console.log(product.res_price);
+    const {title,img,pre_price,res_price,_id,location,pNumber,seller,verify}=product
+  console.log(product);
   const handelReport = ()=>{
     fetch(`https://used-mobile-server.vercel.app/report`,{
       method:"POST",
@@ -35,6 +36,11 @@ const ProductsCard = ({ product }) => {
           <p className="font-semibold">Recent Price: ${res_price}  </p>
           <p className="font-semibold">Location: {location}  </p>
           <p className="font-semibold">Phone Number: {pNumber}  </p>
+          <p className="font-semibold">Seller Name: {seller} 
+         {
+          verify==='true'?<button className="btn btn-xs ml-3">verified</button>: <button className="btn btn-xs ml-3">Not Verified</button>
+         } 
+           </p>
           <div className="card-actions justify-end">
           <Link  to={`/phones/${_id}`}><button className="btn btn-outline btn-warning">Details</button></Link>
           <button onFocus={()=>setReport(product)} onClick={handelReport} className="btn btn-warning"> Report</button>

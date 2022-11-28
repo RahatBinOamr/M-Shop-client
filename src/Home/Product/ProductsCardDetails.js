@@ -9,7 +9,7 @@ import BYNowModal from "../ByNow/BYNowModal/BYNowModal";
 const ProductsCardDetails = () => {
   useTitle('CardDetails')
   const phonesDetails = useLoaderData();
-  const { title, img, pre_price, res_price, details, location, seller, used,pNumber } =
+  const { title, img, pre_price, res_price, details, location, seller, used,pNumber,verify } =
     phonesDetails;
   console.log(phonesDetails);
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -52,6 +52,11 @@ const ProductsCardDetails = () => {
           <p className="font-semibold">Seller: {seller} </p>
           <p className="font-semibold">Used: {used} </p>
           <p className="font-semibold">Phone Number: {pNumber} </p>
+          <p className="font-semibold">Seller Name: {seller} 
+         {
+          verify==='true'?<button className="btn btn-xs ml-3">verified</button>: <button className="btn btn-xs ml-3">Not Verified</button>
+         } 
+           </p>
           <p>{details} </p>
           <div className="card-actions justify-end">
             <Link to="/">

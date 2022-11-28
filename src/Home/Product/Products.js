@@ -15,7 +15,7 @@ const Products = () => {
   return (
     <div className="basis-full ">
       <div className="text-center mb-4">
-        <p className="text-2xl font-bold text-orange-600">Phones</p>
+        
         <h2 className="text-5xl font-semibold">Our Phones</h2>
         <p>
           They come in use for communicating through voice, messages, and mails.
