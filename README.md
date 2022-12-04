@@ -3,10 +3,7 @@
 # client : https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-RahatBinOamr
 _____________________________________________________________
 
-# Admin Email: xyz5@gmail.com
-# Admin Password : @12345R
-# Admin Email: rabby@gmail.com
-# Admin Password : @12345R
+
 
 ____________________________________________________________
 
