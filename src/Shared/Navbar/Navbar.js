@@ -2,38 +2,38 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import img from "../../assets/banner/images.jpg";
 import { AuthContext } from "../../Context/AuthProvider";
-import ProductCategory from "../../Home/ProductCategory/ProductCategory";
+
 
 const Nabvar = () => {
   const { user, logOut } = useContext(AuthContext);
   const ManuIteam = (
     <>
-      <li className="font-semibold">
+      <li className="font-semibold hover:text-warning">
         {" "}
         <Link to="/"> Home</Link>{" "}
       </li>
-      <li className="font-semibold">
+      <li className="font-semibold hover:text-warning">
         {" "}
         <Link to="/allproducts"> All Products</Link>{" "}
       </li>
-      <li className="font-semibold">
+      <li className="font-semibold hover:text-warning">
         {" "}
         <Link to="/blog"> Blog</Link>{" "}
       </li>
-      <li className="font-semibold">
+      <li className="font-semibold hover:text-warning">
         {" "}
         <Link to="/dashboard"> Dashboard</Link>{" "}
       </li>
       {user?.uid ? (
         <>
           {" "}
-          <button onClick={logOut} className="btn btn-warning btn-xs">
+          <button onClick={logOut} className="btn btn-warning btn-xs hover:text-white">
             Log OUt
           </button>{" "}
         </>
       ) : (
         <>
-          <li className="font-semibold">
+          <li className="font-semibold hover:text-warning">
             {" "}
             <Link to="/login">Login</Link>{" "}
           </li>

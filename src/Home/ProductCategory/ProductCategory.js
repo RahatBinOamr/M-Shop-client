@@ -11,9 +11,9 @@ const ProductCategory = () => {
     },[])
     return (
         <div className='basis-1/4 '>
-            <h2 className='text-3xl font-semibold'> Total Category {categories.length} </h2>
+            <h2 className='text-3xl font-semibold text-warning'>  Category  </h2>
             {
-                categories.map(categoryPhones=>  <p key={categoryPhones._id}>
+                categories.map(categoryPhones=>  <p  className='hover:text-warning' key={categoryPhones._id}>
                     <Link to={`/category/${categoryPhones.id}`}> {categoryPhones.name} </Link>
 
                 </p> )

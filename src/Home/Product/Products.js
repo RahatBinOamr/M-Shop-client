@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loading from "../../Shared/Loading";
 import ProductsCard from "./ProductsCard";
 
 const Products = () => {
@@ -10,13 +11,14 @@ const Products = () => {
       .then((data) => setProducts(data));
   }, []);
   //    console.log(products)
+  <Loading></Loading>
   let count =0;
   count = count+1;
   return (
     <div className="basis-full ">
       <div className="text-center mb-4">
         
-        <h2 className="text-5xl font-semibold">Our Phones</h2>
+        <h2 className="text-5xl font-semibold">Our <span className="text-warning">Phones</span></h2>
         <p>
           They come in use for communicating through voice, messages, and mails.
           We can also surf the internet using a phone. Most importantly, we also
@@ -28,7 +30,7 @@ const Products = () => {
         {
             products.map(product=>{
                 count = count + 1;
-                if (count <= 4){
+                if (count <= 7){
                     return (
                         <div>
                             <ProductsCard key={product._id} product={product}></ProductsCard>
